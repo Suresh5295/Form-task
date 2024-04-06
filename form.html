@@ -1,0 +1,108 @@
+<h1>Student form</h1>
+
+<table id="mainform">
+    <tr>
+        <th> Name</th>
+        <td><input id="inputname" type="text"></td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td><input id="inputage" type="text" name=""></td>
+    </tr>
+    <tr>
+        <th>Gender </th>
+        <td><input id="male" type="radio"> Male <input id="female" type="radio"> Female</td>
+    </tr>
+
+    <tr>
+        <th> Course</th>
+        <td> <input id="inputco" type="text" name=""></td>
+    </tr>
+    <tr>
+        <th> Email </th>
+        <td><input id="inputemail" type="text" name=""></td>
+
+    </tr>
+    <tr>
+
+        <td colspan="2"><button style="width: 100%;background-color: aquamarine;" id="btn1">Save</button></td>
+    </tr>
+</table>
+
+
+
+<table id="container">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Course</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+
+</table>
+
+
+<style>
+    .one,
+    .two {
+        border: solid black 2px;
+        width: fit-content;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        border: solid gray 1px;
+    }
+</style>
+
+<script>
+    var inputname = document.getElementById("inputname")
+    var inputage = document.getElementById("inputage")
+    var maleRadio = document.getElementById("male")
+    var femaleRadio = document.getElementById("female")
+    var inputco = document.getElementById("inputco")
+    var inputemail = document.getElementById("inputemail")
+    var btn1 = document.getElementById("btn1")
+
+
+
+    btn1.addEventListener("click", function () 
+    {
+        var container = document.getElementById("container")
+        var row = container.insertRow();
+        var cell1 = row.insertCell(0)
+        var cell2 = row.insertCell(1)
+        var cell3 = row.insertCell(2)
+        var cell4 = row.insertCell(3)
+        var cell5 = row.insertCell(4)
+        var cell6 = row.insertCell(5)
+
+        if (maleRadio.checked) {
+            cell4.innerHTML = "male"
+        } else if (femaleRadio.checked) {
+            cell4.innerHTML = "female";
+        } else {
+            alert("No gender selected");
+        }
+        cell1.innerHTML = inputname.value;
+        cell2.innerHTML = inputage.value;
+        cell3.innerHTML = inputco.value;
+
+        cell5.innerHTML = inputemail.value;
+        cell6.innerHTML = '<button onclick="deleteevent(event)">delete</button>'
+    }
+
+    )
+    function deleteevent(event) {
+        event.target.closest("tr").remove()
+    }
+
+
+
+
+
+
+</script>
